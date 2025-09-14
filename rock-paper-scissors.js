@@ -40,8 +40,6 @@ function isPlayerOneWinner(playerOne, playerTwo) {
 }
 
 function playRound(humanChoice, computerChoice) {
-    console.log(`Human chose ${humanChoice}`);
-    console.log(`Computer chose ${computerChoice}`);
     if(quitGame) {
         return;
     }
@@ -62,8 +60,6 @@ function printScore() {
 
 function playGame() {
     for(let i = 0; i < ROUND_NUMBERS && !quitGame; i++) {
-        console.log(`Human Score: ${humanScore}`);
-        console.log(`Computer Score: ${computerScore}`);
         playRound(getHumanChoice(), getComputerChoice());
     }
 
@@ -80,6 +76,6 @@ let humanScore = 0;
 let computerScore = 0;
 let quitGame = false;
 
-playGame();
+//playGame();
 
 
