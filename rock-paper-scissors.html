@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/rock-paper-scissors.css">
-    <script src="rock-paper-scissors.js"></script>
+    <script src="rock-paper-scissors.js" defer></script>
 </head>
 <body>
     <div class="main-container">
@@ -20,16 +20,16 @@
 
         </div>
 
-        <div class="round-choice-container">
+        <div class="round-choice-container hide">
             <ul>
-                <li>User choose <span>Paper</span></li>
-                <li>Computer choose <span>Scissors</span></li>
+                <li>User choose <span class="user-choice">Paper</span></li>
+                <li>Computer choose <span class="computer-choice">Scissors</span></li>
             </ul>
             
-            <p>User win</p>
+            <p class="round-result"></p>
         </div>
 
-        <div class="score-container">
+        <div class="score-container hide">
             <div>
                 <ul>
                     <li>User Score</li>
@@ -39,8 +39,8 @@
 
             <div class="score">
                 <ul>
-                    <li>0</li>
-                    <li>0</li>
+                    <li class="user-score">0</li>
+                    <li class="computer-score">0</li>
                 </ul>
             </div>
         </div>

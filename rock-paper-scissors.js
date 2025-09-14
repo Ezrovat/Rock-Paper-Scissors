@@ -43,17 +43,38 @@ function playRound(humanChoice, computerChoice) {
     if(quitGame) {
         return;
     }
+
+    let roundResultMessage = "";
     if(isPlayerOneWinner(humanChoice, computerChoice)) {
-        alert(`You Win! ${humanChoice} beats ${computerChoice}`);
+        roundResultMessage = `You Win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
     } else if (isPlayerOneWinner(computerChoice, humanChoice)) {
-        alert(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        roundResultMessage = `You Lose! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
     } else {
-        alert(`It\'s even! You both chose ${humanChoice}`);
+        roundResultMessage = `It\'s even! You both chose ${humanChoice}`;
     }
 
-    checkWinner();
+
+    computerChoiceNode.textContent = computerChoice;
+    userChoiceNode.textContent = humanChoice;
+    computerScoreNode.textContent = computerScore;
+    userScoreNode.textContent = humanScore;
+    roundResultNode.textContent = roundResultMessage;
+
+   
+
+    if(!checkWinner()) {
+        console.log("inside check winner")
+        if(roundNumber === 0) {
+            scoreContainer.classList.remove("hide");
+            roundChoiceContainer.classList.remove("hide");
+        }
+
+        roundNumber++;
+    }
+
+    console.log(roundNumber);
 }
 
 function printScore() {
@@ -77,14 +98,25 @@ function checkWinner() {
         
         h1.textContent = message;
         document.querySelector(".button-section").style.display="none";
+        return true;
     }
+
+    return false;
 }
 
 let humanScore = 0;
 let computerScore = 0;
+let roundNumber = 0;
 let quitGame = false;
 
 const h1 = document.querySelector("h1");
+const scoreContainer = document.querySelector(".score-container");
+const roundChoiceContainer = document.querySelector(".round-choice-container");
+const userChoiceNode = document.querySelector(".user-choice");
+const computerChoiceNode = document.querySelector(".computer-choice");
+const userScoreNode = document.querySelector(".user-score");
+const computerScoreNode = document.querySelector(".computer-score");
+const roundResultNode = document.querySelector(".round-result");
 document.querySelectorAll("button").forEach(btn => btn.addEventListener("click", () => playRound(btn.textContent, getComputerChoice())));
 
 

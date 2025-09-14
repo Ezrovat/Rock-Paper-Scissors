@@ -81,6 +81,10 @@ ul {
     justify-content: space-evenly;
 }
 
+.hide {
+    visibility: hidden;
+}
+
 .round-choice-container p {
     text-align: center;
     font-weight: 900;
