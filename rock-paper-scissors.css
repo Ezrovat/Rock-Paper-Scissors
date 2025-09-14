@@ -68,3 +68,24 @@ ul {
     list-style: none;
 }
 
+.round-choice-container {
+    width: 500px;
+    min-width: 200px;
+    font-size: 18px;
+    background-color: rgb(115, 196, 154);
+    border-radius: 5px;
+}
+
+.round-choice-container ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.round-choice-container p {
+    text-align: center;
+    font-weight: 900;
+}
+
+span {
+    font-weight: 900;
+}
