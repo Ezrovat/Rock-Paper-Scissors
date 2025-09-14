@@ -52,23 +52,31 @@ function playRound(humanChoice, computerChoice) {
     } else {
         alert(`It\'s even! You both chose ${humanChoice}`);
     }
+
+    checkWinner();
 }
 
 function printScore() {
     return `\n \tHuman Score: ${humanScore} \n \tComputer Score: ${computerScore} `;
 }
 
-function playGame() {
-    for(let i = 0; i < ROUND_NUMBERS && !quitGame; i++) {
+function checkWinner() {
+    /*for(let i = 0; i < ROUND_NUMBERS && !quitGame; i++) {
         playRound(getHumanChoice(), getComputerChoice());
-    }
+    }*/
 
-    if(humanScore > computerScore) {
-        alert(`Congratulations! ${printScore()}`)
-    } else if(humanScore < computerScore) {
-        alert(`You Lose! ${printScore()}`)
-    } else {
-        alert(`Even! ${printScore()}`);
+    if(humanScore === 5 || computerScore === 5) {
+        let message = "";
+        if(humanScore > computerScore) {
+            message = `Congratulations! ${printScore()}`;
+        } else if(humanScore < computerScore) {
+            message = `You Lose! ${printScore()}`;
+        } else {
+            message = `Even! ${printScore()}`;
+        }
+        
+        h1.textContent = message;
+        document.querySelector(".button-section").style.display="none";
     }
 }
 
@@ -76,6 +84,11 @@ let humanScore = 0;
 let computerScore = 0;
 let quitGame = false;
 
-//playGame();
+const h1 = document.querySelector("h1");
+document.querySelectorAll("button").forEach(btn => btn.addEventListener("click", () => playRound(btn.textContent, getComputerChoice())));
+
+
+
+
 
 
